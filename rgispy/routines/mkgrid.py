@@ -94,7 +94,9 @@ def dbcells_to_grid(
             f" : ( {_tmp_grid.name} == nodata ? {na_override} : {_tmp_grid.name} )"
         )
         rcalc = RgisCalculate(ghaas_bin=ghaas_bin, scratch_dir=scratch_dir)
-        rcalc.grdCalculate(expr, output_grid, extent=extent)
+        # Added "flat" option to grdCalculate (-n flat). Required when filling in NoData
+        # to avoid grdCalculate interpolating to nearby cells (Fabio - Jan 20, 2023)
+        rcalc.grdCalculate(expr, output_grid, extent=extent, interpolate="flat")
 
         _tmp_grid.close()
         _netref.close()
