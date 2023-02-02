@@ -17,7 +17,7 @@ The easiest way to get going is with conda to circumvent any gdal dependency iss
 
 create -n rgispy python=3.10 gdal
 
-pip install git+https://github.com/dvignoles/rgispy@main
+pip install git+https://github.com/fabio1299/rgispy@main
 ```
 
 ## Developer Setup
